@@ -1,3 +1,7 @@
+NEXTJS, SUPABASE authentication, TAILWIND CSS.
+
+
+
 <h1 align="center"><b>Next.js</b> + <b>Supabase</b> Auth</h1>
 
 <p align="center" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
