@@ -1,3 +1,5 @@
+// src\components\AuthProvider.js
+
 'use client';
 
 import { createContext, useEffect } from 'react';
