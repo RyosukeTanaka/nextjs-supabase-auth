@@ -1,0 +1,44 @@
+sequenceDiagram
+    participant User as ユーザー
+    participant App as アプリケーション
+    participant Auth as 認証
+    participant Profile as プロファイル
+    participant SignIn as サインイン
+    participant SignUp as サインアップ
+
+    User->>App: アプリケーションにアクセス
+    App->>Auth: 認証状態を確認
+    Auth-->>User: 認証ページ（サインイン／サインアップ）
+    User->>SignIn: 認証情報を入力
+    SignIn->>Auth: 認証情報を検証
+    Auth-->>App: ユーザー認証完了
+    App->>Profile: ユーザープロファイルへ移動
+    User->>Profile: プロファイルを閲覧／更新
+    Profile->>Auth: プロファイル情報を更新
+    User->>SignUp: 新しいアカウントを登録
+    SignUp->>Auth: 新ユーザーを登録
+    Auth-->>User: 登録確認
+
+
+English Version
+
+sequenceDiagram
+    participant User
+    participant App
+    participant Auth
+    participant Profile
+    participant SignIn
+    participant SignUp
+
+    User->>App: Accesses application
+    App->>Auth: Checks authentication status
+    Auth-->>User: Authentication page (SignIn/SignUp)
+    User->>SignIn: Enters credentials
+    SignIn->>Auth: Validates credentials
+    Auth-->>App: User authenticated
+    App->>Profile: Navigates to user profile
+    User->>Profile: Views/updates profile
+    Profile->>Auth: Updates profile information
+    User->>SignUp: Registers for new account
+    SignUp->>Auth: Registers new user
+    Auth-->>User: Registration confirmation
