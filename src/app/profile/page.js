@@ -1,8 +1,8 @@
+import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import React from 'react';
 
 import SignOut from 'src/components/SignOut';
 
@@ -17,14 +17,22 @@ export default async function Profile() {
     redirect('/sign-in');
   }
 
+  // Convert UTC date to JST
+  const convertToJST = (dateString) => {
+    const date = new Date(dateString);
+    const utcDate = new Date(date.toUTCString());
+    utcDate.setHours(utcDate.getHours() + 9); // JST is UTC+9
+    return utcDate.toISOString().replace('T', ' ').slice(0, 19); // format as 'YYYY-MM-DD HH:MM:SS'
+  };
+
   return (
     <div className="card">
-      <h2>User Profile</h2>
+      <h2>ユーザー情報</h2>
       <code className="highlight">{user.email}</code>
-      <div className="heading">Last Signed In:</div>
-      <code className="highlight">{new Date(user.last_sign_in_at).toUTCString()}</code>
+      <div className="heading">最終サインイン:</div>
+      <code className="highlight">{convertToJST(user.last_sign_in_at)}</code>
       <Link className="button" href="/">
-        Go Home
+        戻る
       </Link>
       <SignOut />
     </div>

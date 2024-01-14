@@ -1,6 +1,7 @@
 'use client';
 
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import React from 'react';
 
 export default function SignOut() {
   const supabase = createClientComponentClient();
@@ -16,7 +17,6 @@ export default function SignOut() {
 
   return (
     <button type="button" className="button-inverse" onClick={handleSignOut}>
-      Sign Out
-    </button>
+サインアウト    </button>
   );
 }
