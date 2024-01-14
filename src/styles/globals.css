@@ -67,4 +67,6 @@
     @apply bg-white; /* Default light mode background */
     @apply dark:bg-gray-800; /* Dark mode background */
   }
-}
+
+  }    /* Additional global styles can be added here */
+
